@@ -6,6 +6,10 @@ class Parser
   end
 
   def parse(input)
+    regex_p = /^(add|multiply|subtract|divide) ([0-9]*)$/
+    unless input =~ regex_p || input == 'cancel'
+      return "Incorrect Syntax"
+    end
     params = input.split(' ')
     begin
       case params[0]
@@ -19,8 +23,6 @@ class Parser
         return @calculator.divide(params[1].to_i)
       when 'cancel'
         @calculator.clear
-      else 
-        return "Incorrect Syntax"
       end
     rescue Exception => e  
       return "#{e.class} : #{e.message}"  

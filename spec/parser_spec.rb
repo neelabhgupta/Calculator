@@ -30,12 +30,17 @@ describe Parser do
 
     it "should show error when divided by 0" do
       parser = Parser.new()
-      expect(parser.parse("divide 0")).to eq("divided by 0")
+      expect(parser.parse("divide 0")).to eq("ZeroDivisionError : divided by 0")
     end
 
     it "should show message when incorrect syntax" do
       parser = Parser.new()
       expect(parser.parse("/ 0")).to eq("Incorrect Syntax")
+    end
+
+    it "should show message when incorrect syntax" do
+      parser = Parser.new()
+      expect(parser.parse("divide p")).to eq("Incorrect Syntax")
     end
 
   end
