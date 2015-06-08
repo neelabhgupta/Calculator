@@ -20,7 +20,7 @@ class Parser
       when 'cancel'
         @calculator.clear
       else 
-        return "Incorrect syntax"
+        return "Incorrect Syntax"
       end
     rescue Exception => e  
       return e.message  
