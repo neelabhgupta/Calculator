@@ -1,5 +1,4 @@
 #Job: convert string calculator commands to methods on calculator class
-
 class Parser
   def initialize
     @calculator = Calculator.new(0)
@@ -14,7 +13,8 @@ class Parser
     begin
       case params[0]
       when 'add'
-        return @calculator.add(params[1].to_f)
+        return AddCalculator.new(@calculator).operate(params[1].to_f)
+        #return @calculator.add(params[1].to_f)
       when 'multiply'
         return @calculator.multiply(params[1].to_f)
       when 'subtract'
