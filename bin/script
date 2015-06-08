@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-require '../lib/parser.rb'
-require '../lib/calculator.rb'
+require_relative '../lib/parser.rb'
+require_relative '../lib/calculator.rb'
 
 command = gets.strip
 parser = Parser.new

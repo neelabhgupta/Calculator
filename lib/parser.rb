@@ -6,7 +6,7 @@ class Parser
   end
 
   def parse(input)
-    regex_p = /^(add|multiply|subtract|divide) ([0-9]*)$/
+    regex_p = /^(add|multiply|subtract|divide) ([0-9.]*)$/
     unless input =~ regex_p || input == 'cancel'
       return "Incorrect Syntax"
     end
@@ -14,13 +14,18 @@ class Parser
     begin
       case params[0]
       when 'add'
-        return @calculator.add(params[1].to_i)
+        return @calculator.add(params[1].to_f)
       when 'multiply'
-        return @calculator.multiply(params[1].to_i)
+        return @calculator.multiply(params[1].to_f)
       when 'subtract'
-        return @calculator.subtract(params[1].to_i)
+        return @calculator.subtract(params[1].to_f)
       when 'divide'
-        return @calculator.divide(params[1].to_i)
+        value = @calculator.divide(params[1].to_f) 
+        if value == Float::INFINITY || value.nan?
+          return "Division by 0 not allowed"
+        else
+          return value
+        end
       when 'cancel'
         @calculator.clear
       end

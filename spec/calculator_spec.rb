@@ -35,7 +35,18 @@ describe Calculator do
 
     it "should divide 0 to current value" do
       calculator = Calculator.new(5)
-      expect{calculator.divide(0) }.to raise_error(ZeroDivisionError)
+      expect(calculator.divide(0.0)).to eq(Float::INFINITY)
+    end
+
+    it "should divide 0 to current value" do
+      calculator = Calculator.new(0)
+      expect(calculator.divide(0.0).nan?).to eq(true)
+    end
+
+    it "should add 5.2 to current value" do
+      calculator = Calculator.new(0)
+      calculator.add(5.2) 
+      expect(calculator.current_value).to eq(5.2)
     end
 
   end
