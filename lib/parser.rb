@@ -23,7 +23,7 @@ class Parser
         return "Incorrect Syntax"
       end
     rescue Exception => e  
-      return e.message  
+      return "#{e.class} : #{e.message}"  
     end
 
   end
