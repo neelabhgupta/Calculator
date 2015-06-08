@@ -7,18 +7,25 @@ class Parser
 
   def parse(input)
     params = input.split(' ')
-    case params[0]
-    when 'add'
-      return @calculator.add(params[1].to_i)
-    when 'multiply'
-      return @calculator.multiply(params[1].to_i)
-    when 'subtract'
-      return @calculator.subtract(params[1].to_i)
-    when 'divide'
-      return @calculator.divide(params[1].to_i)
-    when 'cancel'
-      @calculator.clear
+    begin
+      case params[0]
+      when 'add'
+        return @calculator.add(params[1].to_i)
+      when 'multiply'
+        return @calculator.multiply(params[1].to_i)
+      when 'subtract'
+        return @calculator.subtract(params[1].to_i)
+      when 'divide'
+        return @calculator.divide(params[1].to_i)
+      when 'cancel'
+        @calculator.clear
+      else 
+        return "Incorrect syntax"
+      end
+    rescue Exception => e  
+      return e.message  
     end
+
   end
 
 end

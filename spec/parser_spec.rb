@@ -28,6 +28,11 @@ describe Parser do
       expect(parser.parse("cancel")).to eq(0)
     end
 
+    it "should show error when divided by 0" do
+      parser = Parser.new()
+      expect(parser.parse("divide 0")).to eq("divide by 0")
+    end
+
   end
   
  end 

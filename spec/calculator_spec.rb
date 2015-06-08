@@ -33,6 +33,11 @@ describe Calculator do
       expect(calculator.current_value).to eq(0)
     end
 
+    it "should divide 0 to current value" do
+      calculator = Calculator.new(5)
+      expect{calculator.divide(0) }.to raise_error(ZeroDivisionError)
+    end
+
   end
   
  end 
