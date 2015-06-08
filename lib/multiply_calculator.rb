@@ -5,6 +5,6 @@ class MultiplyCalculator < Calculator
   end
 
   def operate(operand)
-    @current_value = current_value + operand
+    @current_value = current_value * operand
   end
 end
