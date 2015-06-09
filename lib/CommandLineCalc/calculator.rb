@@ -23,5 +23,11 @@ class Calculator
 
   def clear
     @current_value = 0
-  end 
+  end
+
+  private 
+
+  def numeric?
+    Float(self) != nil rescue false
+  end
 end

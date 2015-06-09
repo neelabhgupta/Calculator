@@ -4,7 +4,7 @@ class AddCalculator < Calculator
     super(calculator.current_value)
   end
 
-  def operate(operand)
-    @current_value = current_value + operand
+  def operate(*args)
+    @current_value = current_value + args[0]
   end
 end

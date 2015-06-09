@@ -1,0 +1,7 @@
+require_relative 'calculator.rb'
+require_relative 'parser.rb'
+require_relative 'add_calculator.rb'
+require_relative 'subtract_calculator.rb'
+require_relative 'multiply_calculator.rb'
+require_relative 'divide_calculator.rb'
+require_relative 'clear_calculator.rb'
